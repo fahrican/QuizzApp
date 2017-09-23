@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,86 +28,106 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //do something
-                Toast.makeText(currentContext, "TESTING", Toast.LENGTH_LONG).show();
+                Toast.makeText(currentContext, "Number of Points: " + evaluateInput(), Toast.LENGTH_LONG).show();
             }
         });
     }
 
-    public void questionNumberOne(View v) {
+    public int evaluateInput() {
 
+        //first question
         RadioButton decisionRadioButton = (RadioButton) findViewById(R.id.radio_2008);
         if (decisionRadioButton.isChecked()) {
             numberOfPoints++;
         }
         Log.v("MainActivity", "1.) Points: " + numberOfPoints);
-    }
 
-    public void questionNumberTwo(View v) {
-
+        //second question
         EditText answerQuestionTwo = (EditText) findViewById(R.id.answer_second_question);
-        String answerQuestionTwoAsText = answerQuestionTwo.toString();
-        String temp = answerQuestionTwoAsText.toLowerCase();
-        Log.v("MainActivity", "The String: " + temp);
+        String answerQuestionTwoAsText = answerQuestionTwo.getText().toString();
+        String answerQuestionTwoResult = answerQuestionTwoAsText.toLowerCase().trim();
 
-        if (temp.equals("satoshi nakamoto")) {
+        if (answerQuestionTwoResult.equals("satoshi nakamoto")) {
             numberOfPoints++;
         }
-    }
+        Log.v("MainActivity", "2.) The String: " + answerQuestionTwoAsText);
 
-    public void questionNumberThree(View v) {
-
+        //third question
         CheckBox optionCrypto = (CheckBox) findViewById(R.id.answer_crypto);
-        if (optionCrypto.isChecked()) {
-            questionThreePoints++;
-        }
-
         CheckBox optionStockOptions = (CheckBox) findViewById(R.id.answer_stock_options);
-        if (optionStockOptions.isChecked()) {
-            decrementQuestionThreePoints(questionThreePoints);
-        }
-
         CheckBox optionGoldCoin = (CheckBox) findViewById(R.id.answer_gold_coin);
-        if (optionGoldCoin.isChecked()) {
-            decrementQuestionThreePoints(questionThreePoints);
-        }
-
         CheckBox optionPaymnetNetwork = (CheckBox) findViewById(R.id.answer_payment_network);
-        if (optionPaymnetNetwork.isChecked()) {
+
+        if (optionCrypto.isChecked() && optionPaymnetNetwork.isChecked() && !(optionStockOptions.isChecked() || optionGoldCoin.isChecked())) {
             questionThreePoints++;
         }
-    }
-
-    public void decrementQuestionThreePoints(int question3) {
-
-        if (question3 > 0) {
-            question3--;
+        else {
+            questionThreePoints = 0;
         }
-    }
 
-    public void questionNumberFour(View v) {
 
+        Log.v("MainActivity", "3.) Points: " + questionThreePoints);
+        numberOfPoints += questionThreePoints;
+
+        //fourth question
         EditText answerQuestionFour = (EditText) findViewById(R.id.answer_fourth_question);
-        String answerQuestionFourAsText = answerQuestionFour.toString();
-        String temp = answerQuestionFourAsText.toLowerCase();
-        Log.v("MainActivity", "4.) The String: " + temp);
+        String answerQuestionFourAsText = answerQuestionFour.getText().toString();
+        String tempQuestionFour = answerQuestionFourAsText.toLowerCase().trim();
+        Log.v("MainActivity", "4.) The String: " + answerQuestionFourAsText);
 
-        if (temp.equals("cash book")) {
+        if (tempQuestionFour.equals("cash book")) {
             numberOfPoints++;
         }
-    }
 
-    public void questionNumberFive(View v) {
-
+        //fifth question
         RadioButton decisionFiveRadioButton = (RadioButton) findViewById(R.id.radio_2140);
         if (decisionFiveRadioButton.isChecked()) {
             numberOfPoints++;
         }
         Log.v("MainActivity", "5.) Points: " + numberOfPoints);
+
+        return numberOfPoints;
     }
 
-    public void evaluateInput () {
+    public void resetInput(View v) {
 
-        
+        //first question input
+        RadioGroup radiogrp = (RadioGroup) findViewById(R.id.radio_buttons_invented);
+        radiogrp.clearCheck();
+
+        //second question input
+        EditText answerQuestionTwo = (EditText) findViewById(R.id.answer_second_question);
+        answerQuestionTwo.setText(null);
+
+        //third question input
+        CheckBox optionCrypto = (CheckBox) findViewById(R.id.answer_crypto);
+        CheckBox optionStockOptions = (CheckBox) findViewById(R.id.answer_stock_options);
+        CheckBox optionGoldCoin = (CheckBox) findViewById(R.id.answer_gold_coin);
+        CheckBox optionPaymnetNetwork = (CheckBox) findViewById(R.id.answer_payment_network);
+
+        if (optionCrypto.isChecked()) {
+            optionCrypto.setChecked(false);
+        }
+        if (optionStockOptions.isChecked()) {
+            optionStockOptions.setChecked(false);
+        }
+        if (optionGoldCoin.isChecked()) {
+            optionGoldCoin.setChecked(false);
+        }
+        if (optionPaymnetNetwork.isChecked()) {
+            optionPaymnetNetwork.setChecked(false);
+        }
+
+        //four question input
+        EditText answerQuestionFour = (EditText) findViewById(R.id.answer_fourth_question);
+        answerQuestionFour.setText(null);
+
+        //five question input
+        RadioGroup mined = (RadioGroup) findViewById(R.id.radio_buttons_mined);
+        mined.clearCheck();
+
+        questionThreePoints = 0;
+        numberOfPoints = 0;
     }
 
 }//end of class

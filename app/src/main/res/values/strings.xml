@@ -10,4 +10,5 @@
     <string name="fourth_question">4.) What is the Blockchain?</string>
     <string name="fifth_question">5.) When will the last Bitcoin be mined?</string>
     <string name="submit_button">Submit</string>
+    <string name="reset_button">Reset</string>
 </resources>
