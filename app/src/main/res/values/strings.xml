@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">QuizzApp</string>
+    <string name="first_question">1.) When was Bitcoin invented?</string>
+    <string name="second_question">2.) Who invented Bitcoin?</string>
+    <string name="third_question">3.) What is Bitcoin?</string>
+    <string name="cryptocurrency">Cryptocurrency</string>
+    <string name="payment_network">Payment Network</string>
+    <string name="gold_coin">Gold Coin</string>
+    <string name="stock_options">Stock Options</string>
+    <string name="fourth_question">4.) What is the Blockchain?</string>
+    <string name="fifth_question">5.) When will the last Bitcoin be mined?</string>
+    <string name="submit_button">Submit</string>
+</resources>

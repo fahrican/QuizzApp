@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.android.quizzapp.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp" >
+
+        <TextView
+            android:id="@+id/first_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/first_question"
+            android:textSize="18sp"
+            android:textColor="@color/classicBlack"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"/>
+
+        <RadioGroup
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/radio_buttons_invented"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/first_question"
+            android:onClick="questionNumberOne">
+            <RadioButton
+                android:id="@+id/radio_2006"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2006"
+                android:layout_marginRight="20dp"/>
+            <RadioButton
+                android:id="@+id/radio_2008"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2008"
+                android:layout_marginRight="20dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_2010"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2010"
+                android:layout_marginRight="20dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_2011"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2011"/>
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/second_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/second_question"
+            android:textSize="18sp"
+            android:textColor="@color/classicBlack"
+            android:layout_below="@id/radio_buttons_invented"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="questionNumberTwo"/>
+
+        <EditText
+            android:id="@+id/answer_second_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/second_question"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/third_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/third_question"
+            android:textSize="18sp"
+            android:textColor="@color/classicBlack"
+            android:layout_below="@id/answer_second_question"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="questionNumberThree"/>
+
+        <CheckBox
+        android:id="@+id/answer_crypto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cryptocurrency"
+        android:layout_marginRight="20dp"
+        android:layout_below="@id/third_question" />
+
+        <CheckBox
+            android:id="@+id/answer_stock_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/stock_options"
+            android:layout_below="@id/third_question"
+            android:layout_toRightOf="@id/answer_crypto"/>
+
+        <CheckBox
+            android:id="@+id/answer_gold_coin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/gold_coin"
+            android:layout_marginRight="20dp"
+            android:layout_below="@id/answer_crypto" />
+
+        <CheckBox
+            android:id="@+id/answer_payment_network"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/payment_network"
+            android:layout_below="@id/answer_stock_options"
+            android:layout_toRightOf="@id/answer_crypto"/>
+
+        <TextView
+            android:id="@+id/fourth_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fourth_question"
+            android:textSize="18sp"
+            android:textColor="@color/classicBlack"
+            android:layout_below="@id/answer_payment_network"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"
+            android:onClick="questionNumberFour"/>
+
+        <EditText
+            android:id="@+id/answer_fourth_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/fourth_question"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:id="@+id/fifth_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/fifth_question"
+            android:textSize="18sp"
+            android:textColor="@color/classicBlack"
+            android:layout_below="@id/answer_fourth_question"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="10dp"/>
+
+        <RadioGroup
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/radio_buttons_mined"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@id/fifth_question"
+            android:onClick="questionNumberFive">
+
+            <RadioButton
+                android:id="@+id/radio_2040"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2040"
+                android:layout_marginRight="25dp"/>
+            <RadioButton
+                android:id="@+id/radio_2100"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2100"
+                android:layout_marginRight="25dp"/>
+
+            <RadioButton
+                android:id="@+id/radio_2140"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2140" />
+            cash account book
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/submit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/submit_button"
+            android:textAllCaps="true"
+            android:layout_below="@id/radio_buttons_mined"
+            android:background="#4CAF50"
+            android:textColor="#FFF"
+            android:layout_marginTop="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+
+
+    </RelativeLayout>
+
+</ScrollView>
